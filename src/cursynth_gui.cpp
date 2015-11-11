@@ -163,6 +163,12 @@ namespace mopo {
   }
 
   void CursynthGui::drawStatus(std::string status) {
+    move(0, 2);
+    printw(gettext("Current Control: "));
+    attron(A_BOLD);
+    hline(' ', MAX_STATUS_SIZE);
+    printw(gettext(getCurrentControl().substr(0, MAX_STATUS_SIZE).c_str()));
+    attroff(A_BOLD);
     move(1, 2);
     printw(gettext("Current Value: "));
     attron(A_BOLD);
